@@ -1,0 +1,11 @@
+services:
+  python-app:
+    build: .
+    volumes:
+      # Mount current directory to /app - changes on host reflect in container
+      - .:/app
+    # Keep container running for development
+    stdin_open: true
+    tty: true
+    # Optional: auto-restart on file changes (requires watchdog in requirements.txt)
+    # command: python -m watchdog.tricks.autorestart --directory=. --pattern=*.py -- python main.py
